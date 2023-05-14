@@ -3,13 +3,15 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import {  toast } from 'react-toastify';
+
 
 
 export default function Login() {
+
     const navigate = useNavigate()
     const [showform, setForm] = useState(true)
     const [count, setCount] = useState(0)
-
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
 
@@ -68,10 +70,19 @@ export default function Login() {
                 Login
             </Button>
             &emsp;
-            <Button as="a" variant="primary" onClick={() => navigate('/register')} >
-                Register
-            </Button>
-        </div>
+            <Button as="a" variant="primary" onClick={() => toast('ບັນທືກ!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            })} >
+            Register
+        </Button>
+        </div >
     )
 }
 
