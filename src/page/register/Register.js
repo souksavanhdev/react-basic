@@ -1,5 +1,6 @@
 import React from 'react'
 import Form from 'react-bootstrap/Form';
+import ButtonComPonents from '../../components/ButtonComPonents';
 
 export default function Register() {
     return (
@@ -25,6 +26,12 @@ export default function Register() {
                 <Form.Label>ເເຂວງ</Form.Label>
                 <Form.Control type="email" placeholder="name@example.com" />
             </Form.Group>
+
+
+            <ButtonComPonents
+                title={'ບັນທືກລົງທະບຽນ'}
+                background={'black'}
+            />
         </div>
     )
 }

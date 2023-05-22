@@ -1,87 +1,68 @@
 import React from 'react'
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
-import {  toast } from 'react-toastify';
-
+import { Button, Form, InputGroup } from 'react-bootstrap'
+import { FcGoogle } from 'react-icons/fc';
+import { AiFillLock } from 'react-icons/ai';
 
 
 export default function Login() {
 
-    const navigate = useNavigate()
-    const [showform, setForm] = useState(true)
-    const [count, setCount] = useState(0)
-    const [email, setEmail] = useState()
-    const [password, setPassword] = useState()
-
-    const OnLogin = () => {
-        setEmail(email)
-        setPassword(password)
-    }
-
     return (
-        <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            flexDirection: "column",
-            alignItems: 'center',
-            marginTop: '20px',
-            // background: 'red'
-        }}>
-            <div style={{ fontSize: "32px" }}>login page</div>
-            <div style={{ fontSize: "20px" }}>email : {email}</div>
-            <div style={{ fontSize: "20px" }}>password : {password}</div>
 
-            {
-                showform ? <>
-                    <Form.Group className="mb-3 w-50" controlId="exampleForm.ControlInput1">
-                        <Form.Label>Email</Form.Label>
+        <div className='login-main'>
+
+            <div className='login-content'>
+
+                {/* ========== Title Header ========= */}
+                <span style={{ fontSize: '32px', color: "#3AAF9F" }} >ເຂົ້າສູ່ລະບົບ</span>
+
+                {/* ========== Form Email ========= */}
+                <div style={{ width: "500px", marginTop: '40px' }}>
+                    <InputGroup className="mb-3">
+                        <InputGroup.Text id="basic-addon1" style={{ border: 'none', background: '#F4F8F7' }}><FcGoogle /></InputGroup.Text>
                         <Form.Control
-                            type="email"
-                            placeholder="name@example.com"
-                            onChange={(e) => setEmail(e.target.value)}
-                            value={email}
+                            placeholder="ອີເມວ..."
+                            aria-label="Username"
+                            aria-describedby="basic-addon1"
+                            style={{
+                                background: "#F4F8F7",
+                                border: 'none',
+                                height: '45px'
+                            }}
                         />
-                    </Form.Group>
-                    <Form.Group className="mb-3 w-50" controlId="exampleForm.ControlInput1">
-                        <Form.Label>password</Form.Label>
+                    </InputGroup>
+                </div>
+
+                {/* ========== Form Password ========= */}
+                <div style={{ width: "500px" }}>
+                    <InputGroup className="mb-3">
+                        <InputGroup.Text id="basic-addon1" style={{ border: 'none', background: '#F4F8F7' }}><AiFillLock /> </InputGroup.Text>
                         <Form.Control
-                            type="text"
-                            placeholder="password"
-                            onChange={(e) => setPassword(e.target.value)}
+                            placeholder="ລະຫັດຜ່ານ..."
+                            aria-label="Username"
+                            aria-describedby="basic-addon1"
+                            style={{
+                                background: "#F4F8F7",
+                                border: 'none',
+                                height: '45px'
+                            }}
                         />
-                    </Form.Group>
+                    </InputGroup>
+                </div>
 
-                    <h style={{ fontSize: '50px' }}>ຈຳນວນຕົວເລກ {count}</h>
-                </> : ""
-            }
+                <div style={{ marginTop: '45px' }}>
+                    <Button style={{
+                        width: '200px',
+                        height: '45px',
+                        background: '#3AAF9F',
+                        border: 'none',
+                        borderRadius: '30px'
+                    }}>
+                        ເຂົ້າສູ່ລະບົບ
+                    </Button>
+                </div>
 
+            </div>
 
-            <Button as="a" variant="primary">
-                ປ່ຽນ ໂໜด
-            </Button>
-            &emsp;
-            <Button as="a" variant="primary" onClick={() => setCount(count + 1)}>
-                ບວກຕົວເລກ
-            </Button>
-            &emsp;
-            <Button as="a" variant="primary" onClick={() => OnLogin()}>
-                Login
-            </Button>
-            &emsp;
-            <Button as="a" variant="primary" onClick={() => toast('ບັນທືກ!', {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            })} >
-            Register
-        </Button>
         </div >
     )
 }
