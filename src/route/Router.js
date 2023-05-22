@@ -32,7 +32,6 @@ export default function Router() {
                     element: <Register />
                 },
 
-
                 {
                     path: '*',
                     element: <h>404 page</h>
